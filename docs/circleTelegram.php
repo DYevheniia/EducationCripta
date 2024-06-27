@@ -31,7 +31,7 @@ if ($_POST) {
         "Ім'я замовника: <b>$nameCircle</b>%0A" . "%0A" .
         "Телефон: <b>$code$userPhone</b>%0A" . "%0A" .
         "<b>======Запитання======</b>%0A%0A" .
-        "Email: <b>$textForm</b>" . "%0A" .
+        "<b>$textForm</b>" . "%0A" .
 
     // Додано параметр parse_mode=HTML
     $urlQuery .= "&parse_mode=HTML"; 

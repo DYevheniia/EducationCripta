@@ -3,7 +3,8 @@
 
 
 const burgerMenu = document.querySelector(".burgerMenu"),
-    headerMenu = document.querySelector(".headerMenu")
+    headerMenu = document.querySelector(".headerMenu"),
+    headerMenuLi = document.querySelectorAll(".headerMenu li")
 
 burgerMenu.addEventListener("click", function () {
     let toggleSubMenu = headerMenu.classList.toggle("togglesSubMenu")
@@ -14,19 +15,27 @@ burgerMenu.addEventListener("click", function () {
         }
 })
 
+headerMenuLi.forEach(li => {
+    li.addEventListener("click", function(){
+        headerMenu.style.display = "none"
+    })
+})
+
 const crossHelper = document.querySelector(".crossHelper"),
     message = document.querySelector(".message"),
     cirleFormButton = document.querySelector(".cirleFormButton"),
     crossCircle = document.getElementById("crossCircle"),
     circleForm = document.querySelector(".circleForm")
 
-
+message.addEventListener("click", function(){
+    message.style.display = "none"
+    circleForm.style.display = "block"
+})
 crossHelper.addEventListener("click", function(){
     message.style.display = "none"
     circleForm.style.display = "none"
 })
 cirleFormButton.addEventListener("click", function(){
-    console.log("djshwkjh");
     message.style.display = "none"
 
     if (circleForm.style.display == "block") {
