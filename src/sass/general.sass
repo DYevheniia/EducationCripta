@@ -158,7 +158,8 @@ hr
     right: 20rem
     transform: translateY(-30%)
     background-color: #fafafa
-    width: 340rem
+    max-width: 400rem
+    width: 100%
     box-sizing: border-box
     padding: 25rem 25rem 20rem
     z-index: 3
@@ -287,12 +288,12 @@ header
     // transform: translate(0, -50%)
     span
         display: block
-        width: 20rem
-        height: 3rem
+        width: 50rem
+        height: 5rem
         border-radius: 10rem
         background: #fff
         &:nth-child(2)
-            margin: 3rem 0
+            margin: 7rem 0
     +media(991)
         display: none
 
@@ -533,46 +534,48 @@ header
 // advantage
 .advantage
     padding: 60rem 0 55rem
-    div
-        overflow: scroll
-        +media(420)
-            overflow: auto
+    // div
+    //     overflow: scroll
+    //     +media(420)
+    //         overflow: auto
     h2
         margin: 0
         // color: #171717
         color: #fff
         max-width: 600rem
         padding-bottom: 60rem
-    table
-        overflow: hidden
-        // border: 1rem solid #a5a5a5
-        border: 1rem solid #fff
-        border-spacing: 0
-        +media(420)
-            overflow: auto
-            width: 100%
-        td
-            width: 50%
-            padding: 30rem 20rem
-            box-sizing: border-box
-            // border: 1rem solid #a5a5a5
-            border: 1rem solid #fff
-            &>div
+    div
+        border: 1rem solid #a5a5a5
+        div
+            display: flex
+            flex-wrap: wrap
+            +media(991)
+                flex-wrap: nowrap
+            div
+                flex-wrap: nowrap
+                padding: 30rem 20rem
                 display: flex
                 align-items: flex-start
-            p
-                margin: 0
-                min-width: 200rem
-                // color: #171717
-                color: #fff
-                +media(420)
-                    min-width: 145rem
-.imageAdvantage
-    min-width: 64rem
-    min-height: 64rem
-    padding-right: 30rem
-    img
-        width: 100%
+                width: 100%
+                border: 1rem solid #a5a5a5
+                +media(991)
+                    width: 50%
+                    justify-content: flex-start
+                div
+                    margin: 0 20rem 0 0
+                    padding: 0
+                    max-width: 64rem
+                    min-height: 64rem
+                    width: 100%
+                    border: none
+                    img
+                        width: 100%
+                p
+                    margin: 0
+                    color: #fff
+                    width: 70%
+                    min-width: 200rem
+
 // whyUs
 .whyUs
     padding: 55rem 0 110rem
@@ -685,6 +688,7 @@ header
         color: #fff
         max-width: none
     &>div
+        cursor: pointer
         // border-top: 1rem solid #d9d9d9
         border-top: 1rem solid #fff
         p
@@ -834,6 +838,84 @@ footer
             // color: #171717
             color: #fff
             text-decoration: none
+.privacy-bg
+    position: fixed
+    display: none
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, .7)
+    z-index: 11
+.privacy
+    overflow: scroll
+    position: absolute
+    display: none
+    padding: 30rem
+    top: 50%
+    left: 50%
+    margin: 0 auto
+    box-sizing: border-box
+    width: 90%
+    height: 90%
+    background: #fff
+    transform: translate(-50%, -50%)
+    h2
+        color: #171717
+        text-transform: uppercase
+        width: auto
+        margin-bottom: 40rem
+        font-weight: 400
+        font-size: 26rem
+        max-width: 460rem
+        +media(480) 
+            max-width: none
+        +media(600)
+            max-width: 400rem
+        +media(700)
+            font-size: 40rem
+        +media(991)
+            font-size: 40rem
+    b
+        font-size: 16rem
+        color: #333
+    p
+        width: 100%
+        font-size: 16rem
+        font-weight: 300
+        line-height: 24rem
+        color: #333
+
+.crossFooter
+    position: absolute
+    top: 20rem
+    right: 20rem
+    padding: 0
+    width: 40rem
+    height: 40rem
+    cursor: pointer
+    &::before
+        content: ''
+        position: absolute
+        padding: 0
+        top: 20rem
+        right: 0
+        width: 45rem
+        height: 2rem
+        background: #a6a6a6
+        transform: rotate(-45deg)
+    &:after
+        content: ''
+        position: absolute
+        padding: 0
+        top: 20rem
+        right: 0
+        width: 45rem
+        height: 2rem
+        background: #a6a6a6
+        transform: rotate(45deg)
+
+
 .bg4
     position: absolute
     display: block
@@ -2386,3 +2468,33 @@ footer
 .iti__flag.iti__np 
     background-color: transparent
 
+
+
+
+
+
+
+.orders-successful
+    padding: 160rem 20rem
+    margin: 0 auto
+    max-width: 800rem
+    text-align: center
+    h1
+        margin: 0 0 20rem 0
+        color: #fff
+        font-size: 50rem
+        min-width: auto
+    p
+        margin: 0 0 20rem 0
+        color: #fff
+        font: 20rem
+    a
+        display: inline-block
+        padding: 9rem 19rem
+        color: #fff
+        background-color: #4ca35a
+        border-radius: 100rem
+        text-decoration: none
+        transition: .5s ease all
+        &:hover
+            background: #347f41

@@ -36,7 +36,7 @@ if ($_POST) {
         "<b>Заявка: </b>%0A%0A" .
         "Ім'я замовника: <b>$userName</b>%0A" . "%0A" .
         "Телефон: <b>$code$userPhone</b>%0A" . "%0A" .
-        "Email: <b>$userEmail</b>" . "%0A" .
+        "Email: <b>$userEmail</b>" . "%0A" . "%0A" .
         "<b>======Інші дані======</b>%0A%0A" .
         "Зручний спосіб звʼязку: <b>$communication</b>%0A" .
         "Депозит: <b>$sum</b>%0A" . "%0A";

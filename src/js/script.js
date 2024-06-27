@@ -55,11 +55,15 @@ window.addEventListener("load", function(){
     }
 })
 
-const questions = document.querySelectorAll('.question')
+const questions = document.querySelectorAll('.answer>div')
 const answers = document.querySelectorAll('.Answer')
 const answerArrow = document.querySelectorAll('.answerArrow')
 
 for (let i = 0; i < questions.length; i++) {
+    for (let j = 0; j < answers.length; j++) {
+        answers[j].style.display = 'none'
+        answerArrow[j].style.transform = 'rotate(0)'
+    }
     questions[i].addEventListener('click', () => {
         if (answers[i].style.display === 'none') {
             for (let j = 0; j < answers.length; j++) {
@@ -73,27 +77,9 @@ for (let i = 0; i < questions.length; i++) {
             answerArrow[i].style.transform = 'rotate(0)'
         }
     })
-    answerArrow[i].addEventListener('click', () => {
-        if (answers[i].style.display === 'none') {
-            for (let j = 0; j < answers.length; j++) {
-                answers[j].style.display = 'none'
-                answerArrow[j].style.transform = 'rotate(0)'
-                // answerArrow[i].style.top = '0'
-
-            }
-            answers[i].style.display = 'block'
-            answerArrow[i].style.transform = 'rotate(-90deg)'
-            answerArrow[i].style.top = '10rem'
-        } else {
-            answers[i].style.display = 'none'
-            answerArrow[i].style.transform = 'rotate(0)'
-            // answerArrow[i].style.top = '0'
-        }
-    })
 }
     
 const selectedFlag = document.querySelectorAll(".iti__selected-flag"),
-    // CountryList = document.querySelectorAll(".iti__country-list"),
     itiCountry = [...document.querySelectorAll(".iti__country")],
     Flag = document.querySelectorAll(".Flag"),
     body = document.getElementById("body")
@@ -109,16 +95,6 @@ selectedFlag.forEach(selFlag => {
         } else {
             this.nextElementSibling.classList.add("iti__hide")
         }
-        // if (this.querySelector(".iti__country-list").style.display == "block") {
-        //     this.querySelector(".iti__country-list").style.display = "none"
-        // } else {
-        //     this.querySelector(".iti__country-list").style.display = "block"
-        //     // earnA.style.display = "block"
-        //     // earnA.addEventListener("click", function(e) {
-        //     //     e.preventDefault()
-        //     //     CountryList.style.display = "none"
-        //     // })
-        // }
     })
 })
 
@@ -150,23 +126,54 @@ for (i = 0; i < itiCountry.length; i++){
     })
 }
 
-const input = document.getElementById('name'),
+let inputName = document.querySelectorAll('.formName'),
     submit = document.getElementById('submitForm'),
-    phone = document.getElementById("phone"),
+    phone = document.querySelectorAll("#phone"),
     email = document.getElementById("email"),
     forma = document.getElementById("forma")
 
-if (input.value == "") {
-    input.addEventListener("change", function(e){
-        const pattern = /[^0-9-_+=@#$%^&*(){}/.,?!\s"']/; // Regular expression
-        const text = input.value; // Get the input text
-        if (pattern.test(text)) {
-            input.style.borderColor = ""; // Reset border color if valid
-        } else {
-            input.style.borderColor = "red"; // Change border color to red if invalid
-            alert("Не коректне іʼмя")
+phone.forEach(tel => {
+    tel.addEventListener('input', function(event) {
+      const inputValue = this.value;
+      const allowedChars = /[0-9]/; // Дозволені символи (цифри)
+      for (let i = 0; i < inputValue.length; i++) {
+        const char = inputValue[i];
+        if (!allowedChars.test(char)) {
+          // Видалити недозволений символ
+          this.value = inputValue.slice(0, i) + inputValue.slice(i + 1);
+          break; // Зупинити цикл, якщо знайдено недозволений символ
         }
+      }
+    });
+})
+inputName.forEach(nameInput => {
+    nameInput.addEventListener('input', function(event) {
+      const inputValue = this.value;
+      const allowedChars = /[^0-9-_+=@#$%^&*(){}/.,?!\s"']/; // Дозволені символи (букви українського та латинського алфавітів)
+    
+      for (let i = 0; i < inputValue.length; i++) {
+        const char = inputValue[i];
+        if (!allowedChars.test(char)) {
+          // Видалити недозволений символ
+          this.value = inputValue.slice(0, i) + inputValue.slice(i + 1);
+          break; // Зупинити цикл, якщо знайдено недозволений символ
+        }
+      }
+    });
+})
 
-    })
-}
+const privacy = document.querySelector(".privacy"),
+    privacyBg = document.querySelector(".privacy-bg")
+    crossPrivacy = document.querySelector(".crossFooter"),
+    privacyButton = document.querySelector(".privacyButton")
 
+
+crossPrivacy.addEventListener("click", function(){
+    privacy.style.display = "none"
+    privacyBg.style.display = "none"
+})
+
+privacyButton.addEventListener("click", function(){
+    privacy.style.display = "block"
+    privacyBg.style.display = "block"
+})
