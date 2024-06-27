@@ -139,6 +139,7 @@ export const watch = () => {
     gulp.watch("src/*.*", gulp.parallel(files))
     gulp.watch("src/fonts/**/*.*", gulp.parallel(fonts))
     gulp.watch("src/img/**/*.*", gulp.parallel(images))
+    gulp.watch("src/php/**/*.php", gulp.parallel(php))
 }
 
 export default gulp.series( 

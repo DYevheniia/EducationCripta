@@ -16,7 +16,7 @@ burgerMenu.addEventListener("click", function () {
 
 const crossHelper = document.querySelector(".crossHelper"),
     message = document.querySelector(".message"),
-    cirleFormButton = document.querySelector(".cirleFormButton "),
+    cirleFormButton = document.querySelector(".cirleFormButton"),
     crossCircle = document.getElementById("crossCircle"),
     circleForm = document.querySelector(".circleForm")
 
@@ -26,7 +26,9 @@ crossHelper.addEventListener("click", function(){
     circleForm.style.display = "none"
 })
 cirleFormButton.addEventListener("click", function(){
+    console.log("djshwkjh");
     message.style.display = "none"
+
     if (circleForm.style.display == "block") {
         circleForm.style.display = "none"
     } else {
@@ -43,7 +45,6 @@ const number3 = document.getElementById("number3"),
 
 let windowW = window.innerWidth
 window.addEventListener("load", function(){
-    console.log(windowW);
     if (windowW <= 991) {
         number3.textContent = "02"
         number2.textContent = "03"
@@ -64,15 +65,12 @@ for (let i = 0; i < questions.length; i++) {
             for (let j = 0; j < answers.length; j++) {
                 answers[j].style.display = 'none'
                 answerArrow[j].style.transform = 'rotate(0)'
-                answerArrow[i].style.top = '0'
             }
             answers[i].style.display = 'block'
             answerArrow[i].style.transform = 'rotate(-90deg)'
-            answerArrow[i].style.top = '10rem'
         } else {
             answers[i].style.display = 'none'
             answerArrow[i].style.transform = 'rotate(0)'
-            answerArrow[i].style.top = '0'
         }
     })
     answerArrow[i].addEventListener('click', () => {
@@ -94,26 +92,34 @@ for (let i = 0; i < questions.length; i++) {
     })
 }
     
-const selectedFlag = document.querySelector(".iti__selected-flag"),
-    CountryList = document.querySelector(".iti__country-list"),
+const selectedFlag = document.querySelectorAll(".iti__selected-flag"),
+    // CountryList = document.querySelectorAll(".iti__country-list"),
     itiCountry = [...document.querySelectorAll(".iti__country")],
-    Flag = document.querySelector(".Flag"),
-    body = document.getElementById("body"),
+    Flag = document.querySelectorAll(".Flag"),
+    body = document.getElementById("body")
     earnA = document.getElementById("earnA")
     
     
-selectedFlag.addEventListener("click", function(){
-    if (CountryList.style.display == "block") {
-        CountryList.style.display = "none"
-        earnA.style.display = "none"
-    } else {
-        CountryList.style.display = "block"
-        earnA.style.display = "block"
-        earnA.addEventListener("click", function(e) {
-            e.preventDefault()
-            CountryList.style.display = "none"
-        })
-    }
+    earnA.style.display = "none"
+selectedFlag.forEach(selFlag => {
+    selFlag.addEventListener("click", function(){
+        console.log(this.nextElementSibling);
+        if (this.nextElementSibling.classList.contains("iti__hide")) {
+            this.nextElementSibling.classList.remove("iti__hide")
+        } else {
+            this.nextElementSibling.classList.add("iti__hide")
+        }
+        // if (this.querySelector(".iti__country-list").style.display == "block") {
+        //     this.querySelector(".iti__country-list").style.display = "none"
+        // } else {
+        //     this.querySelector(".iti__country-list").style.display = "block"
+        //     // earnA.style.display = "block"
+        //     // earnA.addEventListener("click", function(e) {
+        //     //     e.preventDefault()
+        //     //     CountryList.style.display = "none"
+        //     // })
+        // }
+    })
 })
 
 for (i = 0; i < itiCountry.length; i++){
@@ -123,6 +129,7 @@ for (i = 0; i < itiCountry.length; i++){
     let activeCode = document.querySelector(".ActiveCode")
 
     itiFlag.shift()
+    itiFlag.shift()
     let addCo = itiFlag[i].classList[1],
         country = countryName[i].textContent,
         dial = dialCode[i].textContent,
@@ -130,13 +137,16 @@ for (i = 0; i < itiCountry.length; i++){
     itiCountry[i].addEventListener("click", function(){
         // let activeCodeValue = activeCode.getAttribute("value")
         activeCode.value = dial
-        
-        Flag.classList.remove(Flag.classList[2]);
-        Flag.classList.add(addCo);
-        Flag.setAttribute("title", title)
-        selectedFlag.setAttribute("title", title)
-        CountryList.style.display = "none"
-        earnA.style.display = "none"
+        Flag.forEach(flag => {
+            flag.classList.remove(flag.classList[2]);
+            flag.classList.add(addCo);
+            flag.setAttribute("title", title)
+            selectedFlag.forEach(selFlag => {
+                selFlag.setAttribute("title", title)
+                this.parentElement.classList.add("iti__hide")
+            })
+            earnA.style.display = "none"
+        })
     })
 }
 

@@ -7,26 +7,26 @@ html(lang="ru")
         title Обучение торговле на криптовалютных биржах
     body#body
         .cirleFormButton 
-            .message
-                .crossHelper
-                .flex-align 
-                    .image-wrap
-                        img(src="img/tetyana.jpeg", alt="")
-                    .messagePelper 
-                        p Татьяна
-                        p Чем я могу вам помочь?
-            .circleForm 
-                .crossCircle#crossCircle
-                p Напишите ваш вопрос
-                form(action="circleTelegram.php", method="POST") 
-                    div
-                        input(type="text" required name="nameCircle" id="nameCircle" placeholder="Ваше имя") 
-                    div
-                        include components/code.html
-                    div
-                        input(type="text", name="textForm", placeholder="Ваш вопрос")
-                    div 
-                        input(type="submit", class="submitButton" value="Отправить", name="cirleSub")
+        .message
+            .crossHelper
+            .flex-align 
+                .image-wrap
+                    img(src="img/tetyana.jpeg", alt="")
+                .messagePelper 
+                    p Татьяна
+                    p Чем я могу вам помочь?
+        .circleForm
+            .crossCircle#crossCircle
+            p Напишите ваш вопрос
+            form(action="circleTelegram.php", method="POST") 
+                div
+                    input(type="text" required name="nameCircle" id="nameCircle" placeholder="Ваше имя") 
+                div
+                    include components/code.html
+                div
+                    input(type="text", name="textForm", placeholder="Ваш вопрос")
+                div 
+                    input(type="submit", class="submitButton" value="Отправить", name="cirleSub")
         header 
             .header-bg1
             .header-bg2
