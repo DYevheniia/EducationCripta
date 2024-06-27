@@ -14,9 +14,9 @@
     <div class="bg-order-popup">
         <a class="to-main" href="index.html"></a>
         <div class="orders-successful">
-            <h1>Вашу заявку прийнято!</h2>
-            <p>Ми звʼяжемося з Вами найближчим часом для підтвердження заявки.</p>
-            <a class="btn-style-one gradient" href="index.php">на головну</a>
+            <h1>Ваша заявка принята!</h2>
+            <p>Мы свяжемся с Вами в ближайшее время для подтверждения заявки.</p>
+            <a class="btn-style-one gradient" href="index.php">на главную</a>
         </div>
     </div>
 </body>

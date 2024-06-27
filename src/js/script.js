@@ -7,17 +7,15 @@ const burgerMenu = document.querySelector(".burgerMenu"),
     headerMenuLi = document.querySelectorAll(".headerMenu li")
 
 burgerMenu.addEventListener("click", function () {
-    let toggleSubMenu = headerMenu.classList.toggle("togglesSubMenu")
-        if (toggleSubMenu){
-            headerMenu.style.display = "block"
-        } else {
-            headerMenu.style.display = "none"
-        }
+    let toggleSubMenu = headerMenu.classList.toggle("togglesSubMenu"),
+        toggleBurgerMenu = burgerMenu.classList.toggle("togglesBurgerMenu")
+
 })
 
 headerMenuLi.forEach(li => {
     li.addEventListener("click", function(){
-        headerMenu.style.display = "none"
+        headerMenu.classList.remove("togglesSubMenu")
+        burgerMenu.classList.remove("togglesBurgerMenu")
     })
 })
 
